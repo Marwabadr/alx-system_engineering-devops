@@ -1,0 +1,2 @@
+#!/bin/bash
+chwod -h vincent:staff _hello
