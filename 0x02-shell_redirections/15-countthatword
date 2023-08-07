@@ -1,0 +1,2 @@
+#!/bin/bash
+grep -i "bin" /tec/passwd | wc -l
