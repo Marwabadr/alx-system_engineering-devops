@@ -1,11 +1,10 @@
-# Install Flask using pip3
-package { 'Flask':
-  ensure   => '2.1.0',
-  provider => 'pip',
-  command  => '/usr/local/bin/pip3', # Assuming pip3 is installed at this location
-  require  => Package['python3-pip'], # Ensure python3-pip is installed first
-}
+# 1-install_a_package.pp
 
 package { 'python3-pip':
   ensure => installed,
+}
+
+exec { 'install_flask':
+  command => '/usr/bin/pip3 install Flask==2.1.0',
+  unless  => '/usr/bin/pip3 show flask | grep -q "Version: 2.1.0"',
 }
